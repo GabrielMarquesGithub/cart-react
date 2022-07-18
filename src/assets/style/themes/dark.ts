@@ -7,4 +7,5 @@ export const darkTheme = {
   white: "#FFFFFF",
   black: "#000000",
   grey: "#C0C0C0",
+  green: "#2ecc71",
 };

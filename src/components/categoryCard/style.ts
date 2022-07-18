@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { opacityAppear } from "../../assets/style/GlobalStyle";
 
 export const TextContainer = styled.div`
   display: flex;
@@ -11,6 +12,8 @@ export const TextContainer = styled.div`
   transition: filter 0.2s;
 `;
 export const Container = styled.div`
+  animation: ${opacityAppear} 1s;
+
   min-width: 25rem;
   min-height: 10rem;
 

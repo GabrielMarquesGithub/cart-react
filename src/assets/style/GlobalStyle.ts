@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -38,4 +38,13 @@ a {
   text-decoration: none;
 }
 `;
+export const opacityAppear = keyframes`
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+`;
+
 export default GlobalStyle;

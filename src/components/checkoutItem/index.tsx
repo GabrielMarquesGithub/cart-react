@@ -10,9 +10,10 @@ import {
   Container,
   DetailsContainer,
   ImgContainer,
+  TitleContainer,
 } from "./style";
 
-function CartItem(props: productsTypeReducer) {
+function CheckoutItem(props: productsTypeReducer) {
   const { title, quantity, image, price } = props;
 
   const { actions } = useContext(CartContext);
@@ -24,10 +25,12 @@ function CartItem(props: productsTypeReducer) {
     <Container>
       <ImgContainer>
         <img src={image} alt={title} />
-        <span className="name">{title}</span>
       </ImgContainer>
+      <TitleContainer>
+        <span className="name">{title}</span>
+      </TitleContainer>
       <DetailsContainer>
-        <span className="price">R${(price * quantity!).toFixed(2)}</span>
+        <span className="price">R${price * quantity!}</span>
         <ButtonsQuantityContainer>
           <BiLeftArrow onClick={handleDecreaseQuantity} />
           {quantity}
@@ -40,4 +43,4 @@ function CartItem(props: productsTypeReducer) {
     </Container>
   );
 }
-export default CartItem;
+export default CheckoutItem;

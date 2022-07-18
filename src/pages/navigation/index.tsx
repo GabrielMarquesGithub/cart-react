@@ -15,7 +15,7 @@ import {
 
 function Navigation() {
   const { changeTheme } = useTheme();
-  const { actions } = useContext(CartContext);
+  const { state, actions } = useContext(CartContext);
 
   const handleCartOpen = () => actions?.changeState();
 
@@ -32,6 +32,11 @@ function Navigation() {
             <Light onClick={changeTheme} />
             <FiShoppingCart onClick={handleCartOpen} />
             <Cart />
+            {state.itemsQuantity > 0 && (
+              <span onClick={handleCartOpen} className="quantityItemsInCart">
+                {state.itemsQuantity}
+              </span>
+            )}
           </ButtonsContainer>
         </InternalContainer>
       </Container>

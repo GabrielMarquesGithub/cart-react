@@ -2,7 +2,7 @@ import { productsType } from "../../types/products";
 
 import { Container, DetailsContainer, ImgContainer } from "./style";
 
-function ProductCard({ title, description, image, price }: productsType) {
+function ProductCard({ title, image, price }: productsType) {
   return (
     <Container>
       <ImgContainer>

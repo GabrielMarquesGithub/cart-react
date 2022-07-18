@@ -1,12 +1,12 @@
 import { createContext, ReactNode, useReducer, useRef, Reducer } from "react";
 import { productsType } from "../../types/products";
 import { buildAction } from "./buildActions";
-import { actionType, reducer, stateType } from "./reducer";
+import { actionType, productsTypeReducer, reducer, stateType } from "./reducer";
 
 type actionsType = {
   addItemToCart: (payload: productsType) => void;
   removeOneItemToCart: (payload: productsType) => void;
-  removeItemToCart: (payload: number) => void;
+  removeItemToCart: (payload: productsTypeReducer) => void;
   cleanCart: () => void;
   changeState: () => void;
 };

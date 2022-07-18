@@ -15,6 +15,7 @@ export const CategoriesContainer = styled.main`
   gap: 2rem;
   padding: 0 2rem;
 `;
+
 export const BannerContainer = styled.div`
   display: flex;
   justify-content: space-between;

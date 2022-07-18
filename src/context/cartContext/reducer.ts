@@ -2,22 +2,23 @@ import { productsType } from "../../types/products";
 import { actionKind } from "./actionTypes";
 
 export type stateType = {
-  items: productsType[] | null;
+  items: productsTypeReducer[] | null;
   itemsQuantity: number;
   cartIsOpen: boolean;
 };
+export type productsTypeReducer = productsType & { quantity?: number };
 export type actionType =
   | {
       type: actionKind.addItemToCart;
-      payload: productsType;
+      payload: productsTypeReducer;
     }
   | {
       type: actionKind.removeOneItemToCart;
-      payload: productsType;
+      payload: productsTypeReducer;
     }
   | {
       type: actionKind.removeItemToCart;
-      payload: number;
+      payload: productsTypeReducer;
     }
   | {
       type: actionKind.cleanCart;
@@ -29,27 +30,53 @@ export type actionType =
     };
 
 export function reducer(state: stateType, action: actionType) {
-  state.itemsQuantity = state.items ? state.items.length : 0;
   const { type, payload } = action;
   switch (type) {
     case actionKind.addItemToCart:
+      if (state.items?.some((item) => item.id === payload.id)) {
+        return {
+          ...state,
+          itemsQuantity: state.itemsQuantity++,
+          items: state.items?.map((itemMap) =>
+            itemMap.id === payload.id
+              ? { ...itemMap, quantity: itemMap.quantity!++ }
+              : itemMap
+          ),
+        };
+      }
+      const newItem = { ...payload, quantity: 1 };
       return {
         ...state,
-        items: addItem(state.items ? state.items : [], payload),
+        itemsQuantity: state.itemsQuantity++,
+        items: state.items ? [...state.items, newItem] : [newItem],
       };
     case actionKind.removeOneItemToCart:
+      if (payload.quantity! > 1) {
+        return {
+          ...state,
+          itemsQuantity: state.itemsQuantity--,
+          items: state.items!.map((itemMap) =>
+            itemMap.id === payload.id
+              ? { ...itemMap, quantity: itemMap.quantity!-- }
+              : itemMap
+          ),
+        };
+      }
       return {
         ...state,
-        items: removeOneItem(state.items ? state.items : [], payload),
+        itemsQuantity: state.itemsQuantity--,
+        items: state.items!.filter((item) => item.id !== payload.id),
       };
     case actionKind.removeItemToCart:
       return {
         ...state,
-        items: removeItem(state.items ? state.items : [], payload),
+        itemsQuantity: state.itemsQuantity - payload.quantity!,
+        items: state.items!.filter((item) => item.id !== payload.id),
       };
     case actionKind.cleanCart:
       return {
         ...state,
+        itemsQuantity: 0,
         items: null,
       };
     case actionKind.changeState:
@@ -61,20 +88,3 @@ export function reducer(state: stateType, action: actionType) {
       return { ...state };
   }
 }
-const addItem = (items: productsType[], itemForAdd: productsType) => {
-  if (itemForAdd.quantity) {
-    itemForAdd.quantity++;
-    return items;
-  }
-  items.push(itemForAdd);
-  return items;
-};
-const removeOneItem = (items: productsType[], itemForRemove: productsType) => {
-  if (itemForRemove.quantity > 1) {
-    itemForRemove.quantity--;
-    return items;
-  }
-  return removeItem(items, itemForRemove.id);
-};
-const removeItem = (items: productsType[], idForRemove: number) =>
-  items.filter((item) => item.id !== idForRemove);

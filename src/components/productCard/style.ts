@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { opacityAppear } from "../../assets/style/GlobalStyle";
 
 export const ImgContainer = styled.div`
   padding: 1rem;
@@ -18,6 +19,8 @@ export const DetailsContainer = styled.div`
 
   span {
     &.title {
+      cursor: default;
+
       font-size: 0.9rem;
       width: 60%;
       //para esconder overflow de text
@@ -26,6 +29,8 @@ export const DetailsContainer = styled.div`
       text-overflow: ellipsis;
     }
     &.description {
+      cursor: default;
+
       border-radius: 1rem;
 
       margin: 1rem;
@@ -79,8 +84,8 @@ export const ButtonsContainer = styled.div`
   }
 `;
 export const Container = styled.div`
+  animation: ${opacityAppear} 1s;
   position: relative;
-  z-index: 0;
 
   display: flex;
   flex-direction: column;
