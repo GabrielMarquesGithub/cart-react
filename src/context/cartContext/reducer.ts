@@ -9,12 +9,8 @@ export type stateType = {
 export type productsTypeReducer = productsType & { quantity?: number };
 export type actionType =
   | {
-      type: actionKind.addItemToCart;
-      payload: productsTypeReducer;
-    }
-  | {
-      type: actionKind.removeOneItemToCart;
-      payload: productsTypeReducer;
+      type: actionKind.setCartItems;
+      payload: { products: productsTypeReducer[]; quantity: number };
     }
   | {
       type: actionKind.removeItemToCart;
@@ -32,40 +28,11 @@ export type actionType =
 export function reducer(state: stateType, action: actionType) {
   const { type, payload } = action;
   switch (type) {
-    case actionKind.addItemToCart:
-      if (state.items?.some((item) => item.id === payload.id)) {
-        return {
-          ...state,
-          itemsQuantity: state.itemsQuantity++,
-          items: state.items?.map((itemMap) =>
-            itemMap.id === payload.id
-              ? { ...itemMap, quantity: itemMap.quantity!++ }
-              : itemMap
-          ),
-        };
-      }
-      const newItem = { ...payload, quantity: 1 };
+    case actionKind.setCartItems:
       return {
         ...state,
-        itemsQuantity: state.itemsQuantity++,
-        items: state.items ? [...state.items, newItem] : [newItem],
-      };
-    case actionKind.removeOneItemToCart:
-      if (payload.quantity! > 1) {
-        return {
-          ...state,
-          itemsQuantity: state.itemsQuantity--,
-          items: state.items!.map((itemMap) =>
-            itemMap.id === payload.id
-              ? { ...itemMap, quantity: itemMap.quantity!-- }
-              : itemMap
-          ),
-        };
-      }
-      return {
-        ...state,
-        itemsQuantity: state.itemsQuantity--,
-        items: state.items!.filter((item) => item.id !== payload.id),
+        itemsQuantity: state.itemsQuantity + payload.quantity,
+        items: payload.products,
       };
     case actionKind.removeItemToCart:
       return {

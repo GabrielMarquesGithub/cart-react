@@ -31,9 +31,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     reducer,
     initialReducerValue
   );
-  const actions = useRef(buildAction(dispatch));
+  const actions = buildAction(state, dispatch);
   return (
-    <CartContext.Provider value={{ state, actions: actions.current }}>
+    <CartContext.Provider value={{ state, actions: actions }}>
       {children}
     </CartContext.Provider>
   );
