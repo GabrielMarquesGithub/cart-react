@@ -26,8 +26,8 @@ Antes de começar, certifique-se de ter instalado o Node.js e o Git em sua máqu
 
 ## Imagens
 
-![Imagem da página inicial do projeto](documents\cart-app-home.png)
-![Imagem principal do projeto](documents\cart-app.png)
+![Imagem da página inicial do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app-home.png)
+![Imagem principal do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app.png)
 
 ## Tecnologias Utilizadas
 
