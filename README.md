@@ -1,4 +1,13 @@
-# Cart-React
+# [Cart-React](https://legendary-semolina-3f9fff.netlify.app/)
+
+## Deploy
+
+Você pode acessar a versão implantada deste projeto [aqui](https://legendary-semolina-3f9fff.netlify.app/).
+
+## Imagens
+
+![Imagem da página inicial do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app-home.png)
+![Imagem principal do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app.png)
 
 ## Pré-requisitos
 
@@ -29,15 +38,6 @@ Antes de começar, certifique-se de ter instalado o Node.js e o Git em sua máqu
    ```bash
    npm run dev
    ```
-
-## Imagens
-
-![Imagem da página inicial do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app-home.png)
-![Imagem principal do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app.png)
-
-## Deploy
-
-Você pode acessar a versão implantada deste projeto [aqui](https://legendary-semolina-3f9fff.netlify.app/).
 
 ## Tecnologias Utilizadas
 
