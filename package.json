@@ -29,7 +29,6 @@
     "url": "https://github.com/NikisGabriel/cart-react"
   },
   "description": "Um projeto focado na criação de um sistema de carrinho de compras",
-  "main": "index.js",
   "author": "Gabriel Marques Magalhães",
   "license": "MIT"
 }
