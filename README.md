@@ -12,13 +12,19 @@ Antes de começar, certifique-se de ter instalado o Node.js e o Git em sua máqu
    git clone https://github.com/NikisGabriel/cart-react.git
    ```
 
-2. Instale as dependências:
+2. Navegue até a pasta da aplicação:
+
+   ```bash
+   cd cart-react
+   ```
+
+3. Instale as dependências:
 
    ```bash
    npm install
    ```
 
-3. Inicie o servidor de desenvolvimento:
+4. Inicie o servidor de desenvolvimento:
 
    ```bash
    npm run dev
@@ -28,6 +34,10 @@ Antes de começar, certifique-se de ter instalado o Node.js e o Git em sua máqu
 
 ![Imagem da página inicial do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app-home.png)
 ![Imagem principal do projeto](https://github.com/NikisGabriel/cart-react/blob/main/documents/cart-app.png)
+
+## Deploy
+
+Você pode acessar a versão implantada deste projeto [aqui](https://legendary-semolina-3f9fff.netlify.app/).
 
 ## Tecnologias Utilizadas
 
