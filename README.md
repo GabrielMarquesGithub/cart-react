@@ -92,4 +92,4 @@ Entre as ideias de atualização para o projeto, estão:
 
 ## Observações
 
-Este projeto foi um dos primeiros desenvolvidos de forma independente. Foi criado com foco em estudos, especialmente explorando a criação de um sistema de carrinho de compras. Além disso, foram aplicados conceitos avançados, como o uso do `useReducer` para o gerenciamento de um estado compartilhado.
+Este projeto foi um dos primeiros desenvolvidos de forma independente. Foi criado com foco em estudos, especialmente explorando a criação de um sistema de carrinho de compras. Além disso, foram aplicados conceitos avançados, como o uso do `useReducer` junto ao um contexto para o gerenciamento de um estado compartilhado visando uma alternativa a ferramentas como o `Redux`.
